@@ -44,6 +44,16 @@ const PDFFullScreen = ({ fileUrl }: PDFFullscreenProps) => {
                   <Loader2 className="my-24 h-6 w-6 animate-spin" />
                 </div>
               }
+              error={
+                <div className="flex justify-center my-10">
+                  <p className="text-zinc-700 text-sm text-center">
+                    Error loading PDF, the file seems to be invalid or
+                    corrupted.
+                    <br />
+                    Please try again later.
+                  </p>
+                </div>
+              }
               onLoadError={() => {
                 toast({
                   title: 'Error loading PDF',
@@ -59,7 +69,6 @@ const PDFFullScreen = ({ fileUrl }: PDFFullscreenProps) => {
                 <Page key={i} width={width ? width : 1} pageNumber={i + 1} />
               ))}
             </Document>
-            S
           </div>
         </SimpleBar>
       </DialogContent>

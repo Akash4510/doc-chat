@@ -136,7 +136,7 @@ const PDFRenderer = ({ file }: PDFRendererProps) => {
             <DropdownMenuTrigger asChild>
               <Button aria-label="zoom" variant="ghost">
                 <Search className="h-4 w-4" />
-                <p className="text-sm text-zinc-700 mx-1">
+                <p className="text-sm text-zinc-700 mx-2">
                   {scale * 100}%
                 </p>{' '}
                 <ChevronDown className="h-4 w-4 opacity-50" />
@@ -183,6 +183,16 @@ const PDFRenderer = ({ file }: PDFRendererProps) => {
               loading={
                 <div className="flex justify-center">
                   <Loader2 className="my-24 h-6 w-6 animate-spin" />
+                </div>
+              }
+              error={
+                <div className="flex justify-center my-10">
+                  <p className="text-zinc-700 text-sm text-center">
+                    Error loading PDF, the file seems to be invalid or
+                    corrupted.
+                    <br />
+                    Please try again later.
+                  </p>
                 </div>
               }
               onLoadError={() => {

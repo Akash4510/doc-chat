@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                       String @id @default(auto()) @map("_id") @db.ObjectId
+
+  clerkId                  String @unique
+  name                     String
+  email                    String @unique
+
+  File                     File[]
+
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+enum UploadStatus {
+  PENDING
+  PROCESSING
+  FAILED
+  SUCCESS
+}
+
+model File {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+
+  uploadStatus   UploadStatus @default(PENDING)
+
+  url            String
+  key            String
+
+  // This userId is the clerkId of the user and not the default mongodb _id
+  userId         String
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  User           User @relation(fields: [userId], references: [clerkId], onDelete: Cascade)
+}

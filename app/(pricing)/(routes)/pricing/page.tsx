@@ -1,5 +1,5 @@
-const Pricing = () => {
+const PricingPage = () => {
   return <div>Hello Pricing</div>;
 };
 
-export default Pricing;
+export default PricingPage;

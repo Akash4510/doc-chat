@@ -3,8 +3,11 @@ import localFont from 'next/font/local';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/navbar';
+import TRPCProvider from '@/providers/trpc-provider';
 
 const font = localFont({
   src: [
@@ -55,10 +58,14 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn('min-h-screen antialiased grainy', font.className)}>
-          <Navbar />
-          {children}
-        </body>
+        <TRPCProvider>
+          <body
+            className={cn('min-h-screen antialiased grainy', font.className)}
+          >
+            <Navbar />
+            {children}
+          </body>
+        </TRPCProvider>
       </html>
     </ClerkProvider>
   );

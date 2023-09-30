@@ -8,6 +8,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/navbar';
 import TRPCProvider from '@/providers/trpc-provider';
+import { Toaster } from '@/components/ui/toaster';
 
 const font = localFont({
   src: [
@@ -62,6 +63,7 @@ export default function RootLayout({
           <body
             className={cn('min-h-screen antialiased grainy', font.className)}
           >
+            <Toaster />
             <Navbar />
             {children}
           </body>

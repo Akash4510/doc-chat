@@ -2,9 +2,8 @@ import { redirect } from 'next/navigation';
 import { currentUser } from '@clerk/nextjs';
 
 import { db } from '@/lib/db';
-import DashboardHeader from './components/dashboard-header';
-import { trpc } from '@/app/_trpc/client';
-import UserFiles from './components/user-files';
+import UploadButton from '@/components/upload-btn';
+import Files from './components/files';
 
 const DashboardPage = async () => {
   const user = await currentUser();
@@ -31,10 +30,13 @@ const DashboardPage = async () => {
   }
 
   return (
-    <>
-      <DashboardHeader />
-      <UserFiles />
-    </>
+    <main className="mx-auto max-w-7xl p-5 md:p-10">
+      <div className="mt-8 flex flex-row items-start justify-between gap-4 border-b border-gray-200 pb-5 sm:items-center sm:gap-0">
+        <h1 className="font-bold text-4xl text-gray-900">My Files</h1>
+        <UploadButton />
+      </div>
+      <Files />
+    </main>
   );
 };
 

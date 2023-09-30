@@ -3,6 +3,7 @@ import { TRPCError } from '@trpc/server';
 
 import { db } from '@/lib/db';
 import { protectedProcedure, publicProcedure, router } from './trpc';
+import { z } from 'zod';
 
 // Export type router type signature,
 // NOT the router itself.
@@ -53,6 +54,49 @@ export const appRouter = router({
 
     return files;
   }),
+  getFile: protectedProcedure
+    .input(z.object({ key: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx;
+
+      const file = await db.file.findFirst({
+        where: {
+          key: input.key,
+          userId,
+        },
+      });
+
+      if (!file) {
+        throw new TRPCError({ code: 'NOT_FOUND' });
+      }
+
+      return file;
+    }),
+  deleteFile: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx;
+
+      const file = db.file.findFirst({
+        where: {
+          id: input.id,
+          userId,
+        },
+      });
+
+      if (!file) {
+        throw new TRPCError({ code: 'NOT_FOUND' });
+      }
+
+      await db.file.delete({
+        where: {
+          id: input.id,
+          userId,
+        },
+      });
+
+      return file;
+    }),
 });
 
 export type AppRouter = typeof appRouter;

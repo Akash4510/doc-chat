@@ -13,16 +13,15 @@ const Navbar = () => {
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
           <Link href="/" className="flex z-40 font-semibold">
-            <span>QuillSight.</span>
+            <span className="text-xl">QuillSight.</span>
           </Link>
 
           {/* TODO: Add mobile navar */}
-          <div className="hidden items-center space-x-4 sm:flex">
+          <div className="hidden items-center space-x-3 sm:flex">
             <Link
               href="/pricing"
               className={buttonVariants({
                 variant: 'ghost',
-                size: 'sm',
               })}
             >
               Pricing
@@ -33,7 +32,6 @@ const Navbar = () => {
                   href="/dashboard"
                   className={buttonVariants({
                     variant: 'ghost',
-                    size: 'sm',
                   })}
                 >
                   Dashboard
@@ -46,17 +44,11 @@ const Navbar = () => {
                   href="/sign-in"
                   className={buttonVariants({
                     variant: 'ghost',
-                    size: 'sm',
                   })}
                 >
                   Log in
                 </Link>
-                <Link
-                  href="/sign-up"
-                  className={buttonVariants({
-                    size: 'sm',
-                  })}
-                >
+                <Link href="/sign-up" className={buttonVariants()}>
                   Get started <ArrowRight className="ml-1.5 h-4 w-4" />
                 </Link>
               </>

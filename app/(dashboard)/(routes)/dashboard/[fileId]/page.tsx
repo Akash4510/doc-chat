@@ -3,7 +3,7 @@ import { currentUser } from '@clerk/nextjs';
 
 import { db } from '@/lib/db';
 import PDFRenderer from '@/components/pdf-renderer';
-import ChatWrapper from '@/components/chat-wrapper';
+import ChatWrapper from '@/components/chat/chat-wrapper';
 
 interface FileIdPageProps {
   params: {
@@ -45,7 +45,7 @@ const FilePage = async ({ params }: FileIdPageProps) => {
 
         {/* Right side */}
         <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
-          <ChatWrapper />
+          <ChatWrapper fileId={file.id} />
         </div>
       </div>
     </div>

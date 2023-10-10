@@ -17,7 +17,8 @@ model User {
   name                     String
   email                    String @unique
 
-  File                     File[]
+  files                    File[]
+  messages                 Message[]
 
   createdAt                DateTime @default(now())
   updatedAt                DateTime @updatedAt
@@ -39,6 +40,8 @@ model File {
   url            String
   key            String
 
+  messages       Message[]
+
   // This userId is the clerkId of the user and not the default mongodb _id
   userId         String
 
@@ -46,4 +49,21 @@ model File {
   updatedAt      DateTime @updatedAt
 
   User           User @relation(fields: [userId], references: [clerkId], onDelete: Cascade)
+}
+
+model Message {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  text           String
+
+  isUserMessage  Boolean
+
+  // This userId is the clerkId of the user and not the default mongodb _id
+  userId         String
+  fileId         String @db.ObjectId
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  User           User @relation(fields: [userId], references: [clerkId], onDelete: Cascade)
+  File           File @relation(fields: [fileId], references: [id], onDelete: Cascade)
 }

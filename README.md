@@ -6,8 +6,8 @@ A full-stack SaaS application that allows users to upload PDF documents and enga
   <img width="1920" height="1080" alt="thumbnail" src="https://github.com/user-attachments/assets/56865897-3355-4135-b7d0-5d35d293e76d" />
 </p>
 <p align="center">
-  <img width="1920" height="1080" alt="working-demo" src="https://github.com/user-attachments/assets/90d4a836-a92e-45ca-abf6-530177704599" />
-  <img width="1920" height="1080" alt="chat-preview" src="https://github.com/user-attachments/assets/3befc6b8-040b-4346-b2fe-f784317b0517" />
+  <img width="49%" alt="working-demo" src="https://github.com/user-attachments/assets/90d4a836-a92e-45ca-abf6-530177704599" />
+  <img width="49%" alt="chat-preview" src="https://github.com/user-attachments/assets/3befc6b8-040b-4346-b2fe-f784317b0517" />
 </p>
 
 ## 📖 How to Use

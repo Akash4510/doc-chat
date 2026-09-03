@@ -39,8 +39,8 @@ To run this project locally, you will need active accounts/API keys for Clerk, P
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Akash4510/quill-sights.git](https://github.com/Akash4510/quill-sights.git)
-   cd quill-sights
+   git clone [https://github.com/Akash4510/doc-chat.git](https://github.com/Akash4510/doc-chat.git)
+   cd doc-chat
    ```
 
 2. **Install dependencies:**

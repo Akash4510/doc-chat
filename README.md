@@ -70,3 +70,8 @@ To run this project locally, you will need active accounts/API keys for Clerk, P
    ```bash
    npm run dev
    ```
+
+
+## 👏 Acknowledgments
+
+Built alongside the in-depth tutorial by [Josh Tried Coding](https://www.youtube.com/@joshtriedcoding). A huge shoutout to Josh for creating such a thorough walkthrough on building end-to-end type-safe SaaS platforms and modern RAG pipelines!
